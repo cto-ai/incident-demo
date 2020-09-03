@@ -1,0 +1,16 @@
+{
+  "name": "incident",
+  "version": "1.0.0",
+  "description": "Incident",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cto.ai/ops": "^1.9.1",
+    "@cto.ai/sdk": "^2.0.1"
+  }
+}
