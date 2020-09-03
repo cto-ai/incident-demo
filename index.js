@@ -37,12 +37,12 @@ async function main() {
     new_incident_status = obj.new_incident_status;
   }
 
-  sdk.track([], {
+  await sdk.track([], {
     stage: "Incident",
     status: new_incident_status,
     stage_ref: incident_identifier
   });
 
   ux.print(`Incident ${incident_identifier} has been set to ${new_incident_status}.`);
-};
+}
 main();
