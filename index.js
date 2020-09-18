@@ -1,6 +1,12 @@
 const { ux, sdk } = require('@cto.ai/sdk')
 async function main() {
 
+  await ux.prompt({
+    type: 'secret',
+    name: 'PAGERDUTY_API_KEY',
+    message: '🔑  Acquire access to your PagerDuty account'
+  })
+
   const { selection } = await ux.prompt({
     type: "list",
     name: 'selection',
@@ -37,10 +43,52 @@ async function main() {
     new_incident_status = obj.new_incident_status;
   }
 
+  const { description } = await ux.prompt({
+    type: "input",
+    name: "description",
+    message: "Short description of the incident",
+    default: "N/A"
+  });
+
   await sdk.track([], {
     stage: "Incident",
     status: new_incident_status,
     stage_ref: incident_identifier
+  });
+
+  const ics = [
+    "N/A",
+    "Ben",
+    "Jeremy",
+    "Kyle",
+    "Luca",
+    "Ryan"
+  ];
+
+  const { ic } = await ux.prompt({
+    type: "list",
+    name: 'ic',
+    message: 'Please assign an Incident Commander',
+    choices: ics
+  });
+
+  const smes = [
+    "N/A",
+    "Alex",
+    "Brett",
+    "Brian",
+    "Danielle",
+    "Danilo",
+    "Ian",
+    "Steve",
+    "Vahid"
+  ];
+
+  const { sme } = await ux.prompt({
+    type: "list",
+    name: 'sme',
+    message: 'Please assign a Subject Matter Expert (SME)',
+    choices: smes
   });
 
   ux.print(`Incident ${incident_identifier} has been set to ${new_incident_status}.`);
