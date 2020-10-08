@@ -1,6 +1,6 @@
 version: "1"
 commands:
-  - name: incident:0.2.1
+  - name: incident:0.2.2
     public: false
     description: Incident
     run: node /ops/index.js
