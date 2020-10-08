@@ -53,7 +53,7 @@ async function main() {
   await sdk.track([], {
     stage: "Incident",
     status: new_incident_status,
-    stage_ref: incident_identifier
+    pipeline_id: incident_identifier
   });
 
   const ics = [
